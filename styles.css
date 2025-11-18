@@ -1,0 +1,340 @@
+/* Space scene styles */
+/* Center the page and give a neutral background fallback */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+  /* Layered outer-space background: deep base, drifting nebula, and subtle vignette */
+  background-color: #00040a;
+  background-image: radial-gradient(
+      ellipse at 20% 10%,
+      rgba(120, 40, 200, 0.12) 0%,
+      rgba(0, 0, 0, 0) 30%
+    ),
+    radial-gradient(
+      ellipse at 80% 80%,
+      rgba(10, 120, 200, 0.1) 0%,
+      rgba(0, 0, 0, 0) 30%
+    ),
+    radial-gradient(ellipse at center, #030318 0%, #000814 60%);
+  color: #ffffff;
+}
+
+.space-scene {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 2rem 1rem;
+  overflow: hidden;
+}
+
+/* Stars: many tiny dots using box-shadow on a pseudo-element would be ideal,
+	 but a simple repeating radial-gradient layer is used for clarity */
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(white 1px, rgba(255, 255, 255, 0) 2px),
+    radial-gradient(white 1px, rgba(255, 255, 255, 0) 2px);
+  background-size: 2px 2px, 3px 3px;
+  background-position: 0 0, 100px 200px;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.05));
+  pointer-events: none;
+}
+
+/* Add more star layers and a slow twinkle animation */
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.stars::before {
+  /* dense small stars */
+  background-image: radial-gradient(white 0.7px, rgba(255, 255, 255, 0) 1.6px);
+  background-size: 3px 3px;
+  opacity: 0.65;
+  animation: twinkle 6s linear infinite;
+}
+.stars::after {
+  /* scattered larger stars */
+  background-image: radial-gradient(white 1.5px, rgba(255, 255, 255, 0) 3px);
+  background-size: 120px 120px;
+  opacity: 0.32;
+  transform: translateZ(0);
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Nebula drift using a slow-moving background on the scene wrapper */
+.space-scene::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% -20% -10%;
+  background: radial-gradient(
+      circle at 10% 20%,
+      rgba(180, 80, 200, 0.08),
+      rgba(0, 0, 0, 0) 25%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(40, 150, 220, 0.06),
+      rgba(0, 0, 0, 0) 30%
+    );
+  mix-blend-mode: screen;
+  filter: blur(36px) contrast(1.04);
+  z-index: 0;
+  pointer-events: none;
+  animation: nebula-drift 40s linear infinite;
+}
+
+@keyframes nebula-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-3%, 2%, 0) scale(1.02);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Main solar system container */
+.solar {
+  width: min(72vmin, 720px);
+  height: min(72vmin, 720px);
+  position: relative;
+  display: block;
+}
+
+.sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffd166, #ff8c42 60%, #ff4e00);
+  box-shadow: 0 0 40px rgba(255, 140, 66, 0.45),
+    0 0 80px rgba(255, 200, 60, 0.18);
+  z-index: 10;
+}
+
+/* Orbit rings hold planets and rotate around the center */
+.orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Different orbit sizes */
+.orbit--1 {
+  width: 160px;
+  height: 160px;
+}
+.orbit--2 {
+  width: 260px;
+  height: 260px;
+}
+.orbit--3 {
+  width: 380px;
+  height: 380px;
+}
+.orbit--4 {
+  width: 520px;
+  height: 520px;
+}
+
+/* Put planet at the right edge of its orbit */
+.orbit .planet {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.planet--1 {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(#9ad3f5, #3b82c4);
+}
+.planet--2 {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(#ffe29f, #ff7b54);
+}
+.planet--3 {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(#c7f9cc, #2db27f);
+}
+.planet--4 {
+  width: 62px;
+  height: 62px;
+  background: linear-gradient(#d6c1ff, #7b61ff);
+}
+
+/* Spin animations for orbits (different durations) */
+.orbit--1 {
+  animation: spin 8s linear infinite;
+}
+.orbit--2 {
+  animation: spin 14s linear infinite;
+}
+.orbit--3 {
+  animation: spin 22s linear infinite;
+}
+.orbit--4 {
+  animation: spin 32s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Rockets container sits above stars but behind text */
+.rockets {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.rocket {
+  position: absolute;
+  width: 36px;
+  height: 12px;
+  background: linear-gradient(90deg, #fff, #ddd);
+  border-radius: 6px;
+  transform: translateX(-120%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.rocket::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: #ff6b6b;
+  border-radius: 50%;
+}
+
+/* Rocket fly across screen */
+@keyframes fly-right {
+  0% {
+    transform: translateX(-140%) translateY(0) scale(0.92);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(140vw) translateY(-30px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes fly-left {
+  0% {
+    transform: translateX(140%) translateY(0) scale(0.92);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-140vw) translateY(30px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Content overlay: ensure text is readable against busy background */
+.content {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  transform: translateX(-50%);
+  z-index: 20;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25));
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.content h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: clamp(1.25rem, 2.6vw, 2rem);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+.content p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .orbit {
+    animation: none;
+  }
+  .rocket {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Make sure small screens still look okay */
+@media (max-width: 420px) {
+  .solar {
+    width: 92vw;
+    height: 92vw;
+  }
+  .content {
+    top: 6%;
+    padding: 0.6rem 0.9rem;
+  }
+}
+
+/* Small decorative styling for page footer */
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 1.5rem 0;
+}
