@@ -7,41 +7,22 @@ body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial;
   /* Layered outer-space background: deep base, drifting nebula, and subtle vignette */
-  background-color: #00040a;
-  background-image: radial-gradient(
-      ellipse at 20% 10%,
-      rgba(120, 40, 200, 0.12) 0%,
-      rgba(0, 0, 0, 0) 30%
-    ),
-    radial-gradient(
-      ellipse at 80% 80%,
-      rgba(10, 120, 200, 0.1) 0%,
-      rgba(0, 0, 0, 0) 30%
-    ),
-    radial-gradient(ellipse at center, #030318 0%, #000814 60%);
+  /* Make the whole page background pitch black */
+  background-color: #000000;
+  background-image: none;
+  /* Ensure text/content is readable against the black background */
   color: #ffffff;
 }
 
 .space-scene {
-  min-height: 70vh;
-  display: grid;
   place-items: center;
   position: relative;
-  padding: 2rem 1rem;
-  overflow: hidden;
 }
-
-/* Stars: many tiny dots using box-shadow on a pseudo-element would be ideal,
-	 but a simple repeating radial-gradient layer is used for clarity */
-.stars {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(white 1px, rgba(255, 255, 255, 0) 2px),
-    radial-gradient(white 1px, rgba(255, 255, 255, 0) 2px);
+head {
   background-size: 2px 2px, 3px 3px;
   background-position: 0 0, 100px 200px;
   opacity: 0.9;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.05));
+  filter: drop-shadow(0 0 2px #ffffff);
   pointer-events: none;
 }
 
@@ -55,14 +36,14 @@ body {
 }
 .stars::before {
   /* dense small stars */
-  background-image: radial-gradient(white 0.7px, rgba(255, 255, 255, 0) 1.6px);
+  background-image: radial-gradient(rgb(0, 0, 0) 0.7px, transparent 1.6px);
   background-size: 3px 3px;
   opacity: 0.65;
   animation: twinkle 6s linear infinite;
 }
 .stars::after {
   /* scattered larger stars */
-  background-image: radial-gradient(white 1.5px, rgba(255, 255, 255, 0) 3px);
+  background-image: radial-gradient(rgb(255, 255, 255) 1.5px, rgb(0, 0, 0) 3px);
   background-size: 120px 120px;
   opacity: 0.32;
   transform: translateZ(0);
@@ -85,18 +66,10 @@ body {
   content: "";
   position: absolute;
   inset: -20% -10% -20% -10%;
-  background: radial-gradient(
-      circle at 10% 20%,
-      rgba(180, 80, 200, 0.08),
-      rgba(0, 0, 0, 0) 25%
-    ),
-    radial-gradient(
-      circle at 80% 70%,
-      rgba(40, 150, 220, 0.06),
-      rgba(0, 0, 0, 0) 30%
-    );
-  mix-blend-mode: screen;
-  filter: blur(36px) contrast(1.04);
+  /* Remove nebula/colored lighting so the background stays pure black */
+  background: none;
+  mix-blend-mode: normal;
+  filter: none;
   z-index: 0;
   pointer-events: none;
   animation: nebula-drift 40s linear infinite;
@@ -125,14 +98,13 @@ body {
 .sun {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 85%;
   transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #ffd166, #ff8c42 60%, #ff4e00);
-  box-shadow: 0 0 40px rgba(255, 140, 66, 0.45),
-    0 0 80px rgba(255, 200, 60, 0.18);
+  box-shadow: 0 0 40px rgba(255, 140, 66, 0.45), 0 0 80px rgb(234, 255, 8);
   z-index: 10;
 }
 
@@ -140,7 +112,7 @@ body {
 .orbit {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 85%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   pointer-events: none;
@@ -148,30 +120,33 @@ body {
 
 /* Different orbit sizes */
 .orbit--1 {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
 }
 .orbit--2 {
-  width: 260px;
-  height: 260px;
+  width: 300px;
+  height: 300px;
 }
 .orbit--3 {
-  width: 360px;
-  height: 360px;
+  width: 400px;
+  height: 400px;
 }
 .orbit--4 {
   width: 500px;
   height: 500px;
 }
 .orbit--5 {
-  width: 660px;
-  height: 660px;
+  width: 800px;
+  height: 800px;
 }
 
 /* Put planet at the right edge of its orbit */
 .orbit .planet {
   position: absolute;
   right: 0;
+
+  /* AI-generated code starts here */
+  /* AI-generated code ends here */
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
@@ -192,16 +167,53 @@ body {
   width: 46px;
   height: 46px;
   background: linear-gradient(#0ef738, #0d78ca);
+  position: relative; /* Needed for moon to orbit inside */
 }
+
+/* AI-generated code starts here */
+/* Moon orbits planet 3, same size as planet 3 */
+.moon-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80px; /* orbit diameter */
+  height: 80px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: moon-spin 4s linear infinite;
+}
+
+.moon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: linear-gradient(#e0e0e0, #b0b0b0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes moon-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+/* AI-generated code ends here */
 .planet--4 {
   width: 46px;
   height: 46px;
   background: linear-gradient(#ffffff, #ff2600);
 }
 .planet--5 {
-  width: 54px;
-  height: 54px;
-  background: linear-gradient(#ffb3d9, #ff4da6);
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(#937620, #bda54e);
 }
 
 /* Spin animations for orbits (different durations) */
@@ -219,6 +231,37 @@ body {
 }
 .orbit--5 {
   animation: spin 42s linear infinite;
+}
+
+/* New planet 6: a wider orbit and a gentle slow spin */
+.orbit--6 {
+  width: 1000px;
+  height: 1000px;
+  animation: spin 35s linear infinite;
+}
+
+.planet--6 {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(#b89f15, #c38e09);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  position: relative;
+}
+
+/* New planet 7: the outermost orbit with a very slow spin */
+.orbit--7 {
+  width: 1200px;
+  height: 1200px;
+  animation: spin 20s linear infinite;
+}
+
+.planet--7 {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(#ffb347, #ffcc80);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
 }
 
 @keyframes spin {
@@ -242,7 +285,7 @@ body {
   position: absolute;
   width: 36px;
   height: 12px;
-  background: linear-gradient(90deg, #fff, #ddd);
+  background: linear-gradient(90deg, #40c3eb, #9708d8);
   border-radius: 6px;
   transform: translateX(-120%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -256,7 +299,7 @@ body {
   transform: translateY(-50%);
   width: 12px;
   height: 12px;
-  background: #ff6b6b;
+  background: #ffffff;
   border-radius: 50%;
 }
 
@@ -313,12 +356,12 @@ body {
 .content h1 {
   margin: 0 0 0.25rem 0;
   font-size: clamp(1.25rem, 2.6vw, 2rem);
-  color: #fff;
+  color: #ffffff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 .content p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(0, 0, 0, 0.92);
 }
 
 /* Respect prefers-reduced-motion */
@@ -347,6 +390,6 @@ body {
 /* Small decorative styling for page footer */
 hr {
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgb(0, 0, 0);
   margin: 1.5rem 0;
 }
