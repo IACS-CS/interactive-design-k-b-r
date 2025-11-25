@@ -3,20 +3,30 @@
 html,
 body {
   height: 100%;
+  width: 100%;
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial;
-  /* Layered outer-space background: deep base, drifting nebula, and subtle vignette */
-  /* Make the whole page background pitch black */
+  /* Make the whole page background pitch black with stars */
   background-color: #000000;
-  background-image: none;
+  /* dense small stars */
+  background-image: radial-gradient(rgb(0, 0, 0) 0.7px, transparent 1.6px),
+    radial-gradient(rgb(255, 255, 255) 1.5px, rgb(0, 0, 0) 3px);
+  background-size: 3px 3px, 120px 120px;
+  background-repeat: repeat;
+  background-attachment: fixed;
   /* Ensure text/content is readable against the black background */
   color: #ffffff;
+  overflow: auto;
 }
 
 .space-scene {
-  place-items: center;
   position: relative;
+  width: 8000px;
+  height: 8000px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 head {
   background-size: 2px 2px, 3px 3px;
@@ -27,6 +37,15 @@ head {
 }
 
 /* Add more star layers and a slow twinkle animation */
+.stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: none;
+}
+
 .stars::before,
 .stars::after {
   content: "";
@@ -38,6 +57,7 @@ head {
   /* dense small stars */
   background-image: radial-gradient(rgb(0, 0, 0) 0.7px, transparent 1.6px);
   background-size: 3px 3px;
+  background-repeat: repeat;
   opacity: 0.65;
   animation: twinkle 6s linear infinite;
 }
@@ -45,6 +65,7 @@ head {
   /* scattered larger stars */
   background-image: radial-gradient(rgb(255, 255, 255) 1.5px, rgb(0, 0, 0) 3px);
   background-size: 120px 120px;
+  background-repeat: repeat;
   opacity: 0.32;
   transform: translateZ(0);
 }
@@ -91,14 +112,17 @@ head {
 .solar {
   width: min(72vmin, 720px);
   height: min(72vmin, 720px);
-  position: relative;
+  position: absolute;
+  left: 4000px;
+  top: 4000px;
+  transform: translate(-50%, -50%);
   display: block;
 }
 
 .sun {
   position: absolute;
-  left: 50%;
-  top: 85%;
+  left: 500%;
+  top: 1200%;
   transform: translate(-50%, -50%);
   width: 150px;
   height: 150px;
@@ -111,8 +135,8 @@ head {
 /* Orbit rings hold planets and rotate around the center */
 .orbit {
   position: absolute;
-  left: 50%;
-  top: 85%;
+  left: 500%;
+  top: 1200%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   pointer-events: none;
@@ -340,10 +364,10 @@ head {
 
 /* Content overlay: ensure text is readable against busy background */
 .content {
-  position: absolute;
+  position: fixed;
   left: 50%;
-  top: 8%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 20;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25));
   padding: 0.8rem 1.2rem;
@@ -363,6 +387,35 @@ head {
   margin: 0;
   color: rgba(0, 0, 0, 0.92);
 }
+
+/* AI-generated code starts here */
+/* Button styling for exploring planets orbit */
+.explore-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #40c3eb, #9708d8);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(64, 195, 235, 0.3);
+}
+
+/* Hover effect when mouse is over the button */
+.explore-btn:hover {
+  background: linear-gradient(135deg, #9708d8, #40c3eb);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(151, 8, 216, 0.4);
+}
+
+/* Active state when button is clicked */
+.explore-btn:active {
+  transform: scale(0.98);
+}
+/* AI-generated code ends here */
 
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
