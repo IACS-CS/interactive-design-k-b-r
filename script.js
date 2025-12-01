@@ -78,5 +78,15 @@ document.addEventListener("visibilitychange", function () {
   }
 });
 
-// AI-generated code ends here
+document
+.querySelector(".explore-btn")
+.addEventListener("click",  // when they click explore
+  function () {
+    // run this code on click...
+    document.querySelector(".sun").scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
 
+    // end click code
+  }
+);
+
+// AI-generated code ends here
