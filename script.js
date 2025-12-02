@@ -122,11 +122,26 @@ document
       }
     );
 
-    document
-    .querySelector("#zoom-out-button")
-    .addEventListener("click", 
-      document.getElementById('zoom-out-button').addEventListener('click', 
-        function() {
+    document.addEventListener("DOMContentLoaded", function () {
+      const zoomOutButton = document.getElementById("zoom-out-button");
+      const pageContent = document.getElementById("page-content"); // Or document.body if you want to zoom the entire page
+      let currentZoomLevel = 1; // Initial zoom level
+
+      zoomOutButton.addEventListener("click", function () {
+        // Decrease the zoom level (e.g., by 0.1)
+        currentZoomLevel -= 0.1;
+
+        // Ensure the zoom level doesn't go below a certain minimum if desired
+        if (currentZoomLevel < 0.1) {
+          currentZoomLevel = 0.1; // Set a minimum zoom level
         }
-      )
-    );
+
+        // Apply the new zoom level using CSS transform: scale()
+        pageContent.style.transform = `scale(${currentZoomLevel})`;
+        pageContent.style.transformOrigin = "top left"; // Adjust origin as needed
+      });
+    });
+
+
+
+ 
