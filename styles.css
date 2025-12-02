@@ -22,11 +22,13 @@ body {
 
 .space-scene {
   position: relative;
-  width: 8000px;
-  height: 8000px;
-  left: 50%;
-  top: 50%;
+  width: 130000px;
+  height: 130000px;
+  left: 50000%;
+  top: 50000%;
   transform: translate(-50%, -50%);
+  overflow: auto;
+  
 }
 head {
   background-size: 2px 2px, 3px 3px;
@@ -124,8 +126,8 @@ head {
   left: 500%;
   top: 1200%;
   transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
+  width: 1500px;
+  height: 1500px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #ffd166, #ff8c42 60%, #ff4e00);
   box-shadow: 0 0 40px rgba(255, 140, 66, 0.45), 0 0 80px rgb(234, 255, 8);
@@ -144,20 +146,20 @@ head {
 
 /* Different orbit sizes */
 .orbit--1 {
-  width: 250px;
-  height: 250px;
+  width: 9250px;
+  height: 9250px;
 }
 .orbit--2 {
-  width: 300px;
-  height: 300px;
+  width: 20000px;
+  height: 20000px;
 }
 .orbit--3 {
-  width: 400px;
-  height: 400px;
+  width: 30000px;
+  height: 30000px;
 }
 .orbit--4 {
-  width: 500px;
-  height: 500px;
+  width: 40000px;
+  height: 40000px;
 }
 .orbit--5 {
   width: 800px;
@@ -178,18 +180,18 @@ head {
 }
 
 .planet--1 {
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(#5a5a5b7a, #c5500c);
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(#5a5a5b7a, #777575);
 }
 .planet--2 {
-  width: 38px;
-  height: 38px;
+  width: 500px;
+  height: 500px;
   background: linear-gradient(#ffe29f, #d5811b);
 }
 .planet--3 {
-  width: 46px;
-  height: 46px;
+  width: 600px;
+  height: 600px;
   background: linear-gradient(#0ef738, #0d78ca);
   position: relative; /* Needed for moon to orbit inside */
 }
@@ -200,20 +202,20 @@ head {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 80px; /* orbit diameter */
-  height: 80px;
+  width: 1400px; /* orbit diameter */
+  height: 1400px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   pointer-events: none;
-  animation: moon-spin 4s linear infinite;
+  animation: moon-spin 20s linear infinite;
 }
 
 .moon {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 10px;
-  height: 10px;
+  width: 250px;
+  height: 250px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: linear-gradient(#e0e0e0, #b0b0b0);
@@ -230,8 +232,8 @@ head {
 }
 /* AI-generated code ends here */
 .planet--4 {
-  width: 46px;
-  height: 46px;
+  width: 600px;
+  height: 600px;
   background: linear-gradient(#ffffff, #ff2600);
 }
 .planet--5 {
@@ -242,16 +244,16 @@ head {
 
 /* Spin animations for orbits (different durations) */
 .orbit--1 {
-  animation: spin 8s linear infinite;
+  animation: spin 700s linear infinite;
 }
 .orbit--2 {
-  animation: spin 14s linear infinite;
+  animation: spin 800s linear infinite;
 }
 .orbit--3 {
-  animation: spin 22s linear infinite;
+  animation: spin 800s linear infinite;
 }
 .orbit--4 {
-  animation: spin 32s linear infinite;
+  animation: spin 1000s linear infinite;
 }
 .orbit--5 {
   animation: spin 42s linear infinite;
@@ -476,4 +478,177 @@ hr {
 
 
 
+#explore-button-Mercury {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #40c3eb, #9708d8);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(64, 195, 235, 0.3);
+}
+#explore-button-Mercury{
+  position: fixed;
+  right:12in;
+  bottom: 4.5in;
+}
 
+
+#explore-button-Mercury:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(151, 8, 216, 0.4);
+}
+
+#explore-button-Mercury:active {
+  transform: scale(0.5);
+}
+
+#explore-button-Mercury{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/960px-Mercury_in_true_color.jpg?20230515081613");
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center; 
+    width: 150px;
+  height: 50px;
+  background-color: transparent;
+}
+
+
+#explore-button-Venus {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #40c3eb, #9708d8);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(64, 195, 235, 0.3);
+}
+#explore-button-Venus{
+  position: fixed;
+  right:12in;
+  bottom: 3.5in;
+}
+#explore-button-Venus:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(151, 8, 216, 0.4);
+}
+#explore-button-Venus:active {
+  transform: scale(0.5);
+}
+#explore-button-Venus{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg");
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center; 
+    width: 150px;
+  height: 50px;
+  background-color: transparent;
+}
+
+#explore-button-Earth {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #40c3eb, #9708d8);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(64, 195, 235, 0.3);
+}
+#explore-button-Earth{
+  position: fixed;
+  right:12in;
+  bottom: 2.5in;
+}
+#explore-button-Earth:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(151, 8, 216, 0.4);
+}
+#explore-button-Earth:active {
+  transform: scale(0.5);
+}
+#explore-button-Earth{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center; 
+    width: 150px;
+  height: 50px;
+  background-color: transparent;
+}
+
+#explore-button-Mars {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #40c3eb, #9708d8);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(64, 195, 235, 0.3);
+}
+#explore-button-Mars{
+  position: fixed;
+  right:12in;
+  bottom: 1.5in;
+}
+#explore-button-Mars:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(151, 8, 216, 0.4);
+}
+#explore-button-Mars:active {
+  transform: scale(0.5);
+}
+#explore-button-Mars{
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg");
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center; 
+    width: 150px;
+  height: 50px;
+  background-color: transparent;
+}
+
+#zoom-out-button {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #40c3eb, #9708d8);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(64, 195, 235, 0.3);
+}
+#zoom-out-button{
+  position: fixed;
+  right:12in;
+  bottom: 0.5in;
+}
+#zoom-out-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(151, 8, 216, 0.4);
+}
+#zoom-out-button:active {
+  transform: scale(0.5);
+}
+#zoom-out-button{
+  background-image: url("");
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center; 
+  width: 150px;
+  height: 50px;
+  background-color: transparent;
+}

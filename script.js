@@ -81,12 +81,52 @@ document.addEventListener("visibilitychange", function () {
 document
 .querySelector(".explore-btn")
 .addEventListener("click",  // when they click explore
-  function () {
+  function (){
     // run this code on click...
     document.querySelector(".sun").scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+  });
 
-    // end click code
-  }
-);
 
-// AI-generated code ends here
+
+
+
+    document
+    .querySelector("#explore-button-Mercury")
+    .addEventListener("click", 
+      function () {
+        document.querySelector(".planet--1").scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+      }
+    );
+
+    document
+    .querySelector("#explore-button-Venus")
+    .addEventListener("click", 
+      function () {
+        document.querySelector(".planet--2").scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+      }
+    );
+
+    document
+    .querySelector("#explore-button-Earth")
+    .addEventListener("click", 
+      function () {
+        document.querySelector(".planet--3").scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+      }
+    );
+  
+    document
+    .querySelector("#explore-button-Mars")
+    .addEventListener("click", 
+      function () {
+        document.querySelector(".planet--4").scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+      }
+    );
+
+    document
+    .querySelector("#zoom-out-button")
+    .addEventListener("click", 
+      document.getElementById('zoom-out-button').addEventListener('click', 
+        function() {
+        }
+      )
+    );
