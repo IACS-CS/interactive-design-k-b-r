@@ -19,13 +19,185 @@ small{
 
 .Sun {
   position: relative;
-  bottom: 10000px;
-  left: 10000px;
-  width: 200px;
-  height: 200px;
+  top: 1000px;
+  left: 40000px;
+  width: 2000px;
+  height: 2000px;
   margin: -100px 0 0 -100px;
-  background: radial-gradient(circle at center, #FFD700, #FFA500);
+  background: radial-gradient(circle at center, #ff9500, #FFA500);
   border-radius: 50%;
   box-shadow: 0 0 30px 10px rgba(255, 215, 0, 0.5);
   z-index: 1000;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/960px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg?20100831165216');
+  background-position: center;
+  background-size: 200%;
+}
+
+#Sun-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: gold;
+  color: rgb(252, 250, 250);
+  padding: 20px 50px;
+  border: rgb(255, 255, 255) 2px solid;
+  cursor: pointer;
+  z-index: 2000;
+  border-radius: 15px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/960px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg?20100831165216');
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+.Mercury {
+  position: relative;
+  top: 1500px;
+  left: 45000px;
+  width: 800px;
+  height: 800px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #b0b0b0, #808080);
+  border-radius: 50%;
+  box-shadow: 0 0 20px 5px rgba(169, 169, 169, 0.5);
+  z-index: 1000;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/960px-Mercury_in_true_color.jpg');
+  background-position: center;
+}
+
+#Mercury-btn {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background-color: gray;
+  color: rgb(252, 250, 250);
+  padding: 20px 50px;
+  border: rgb(255, 255, 255) 2px solid;
+  cursor: pointer;
+  z-index: 2000;
+  border-radius: 15px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/960px-Mercury_in_true_color.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.Venus {
+  position: relative;
+  top: 2000px;
+  left: 50000px;
+  width: 1000px;
+  height: 1000px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #e6e2d3, #c2b280);
+  border-radius: 50%;
+  box-shadow: 0 0 25px 7px rgba(218, 165, 32, 0.5);
+  z-index: 1000;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg');
+  background-position: center;
+  background-size: cover;
+  background-size: 170%;
+}
+#Venus-btn {
+  position: fixed;
+  top: 180px;
+  right: 20px;
+  background-color: tan;
+  color: rgb(252, 250, 250);
+  padding: 20px 50px;
+  border: rgb(255, 255, 255) 2px solid;
+  cursor: pointer;
+  z-index: 2000;
+  border-radius: 15px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.Earth {
+  position: relative;
+  top: 2500px;
+  left: 55000px;
+  width: 1100px;
+  height: 1100px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #6ca0dc, #2a52be);
+  border-radius: 50%;
+  box-shadow: 0 0 30px 8px rgba(30, 144, 255, 0.5);
+  z-index: 1000;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg');
+  background-position: center;
+  background-size: cover;
+  background-size: 150%;
+}
+#Earth-btn {
+  position: fixed;
+  top: 260px;
+  right: 20px;
+  background-color: blue;
+  color: rgb(252, 250, 250);
+  padding: 20px 50px;
+  border: rgb(255, 255, 255) 2px solid;
+  cursor: pointer;
+  z-index: 2000;
+  border-radius: 15px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.Moon {
+  position: relative;
+  top: 2700px;
+  left: 56200px;
+  width: 300px;
+  height: 300px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #d9d9d9, #a6a6a6);
+  border-radius: 50%;
+  box-shadow: 0 0 15px 4px rgba(211, 211, 211, 0.5);
+  z-index: 1000;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg');
+  background-position: center;
+  background-size: 150%;
+}
+
+
+
+
+
+
+/* ... existing CSS for html, small, .Sun, .Mercury, etc. ... */
+
+/* Wrap the massive elements to be zoomed */
+.zoomable-content {
+    /* Set the origin point for the zoom (e.g., center of the screen) */
+    transform-origin: 50% 50%; 
+    will-change: transform; /* Performance optimization */
+}
+
+/* Style for the fixed zoom control bar */
+#zoom-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 5000; /* Ensure it's above everything */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#zoom-slider {
+    width: 80%;
+    margin-left: 10px;
+}
+
+/* Ensure the fixed buttons and small citation link remain above the slider and un-scaled */
+#Sun-btn, #Mercury-btn, #Venus-btn, #Earth-btn, small {
+    z-index: 5001; /* Higher than the zoom control */
 }

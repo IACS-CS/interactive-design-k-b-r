@@ -13,9 +13,32 @@
     />
     <title>My Choose-Your-Own Adventure!</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+<div class="container">
+  <div class="universe">
+    <div class ="Sun" id="Sun"></div>
+    <div class="Mercury"></div>
+    <div class="Venus"></div>
+    <div class="Earth"></div>
+    <div class="Moon"></div>
+  </div>
+</div>
 
-<div class ="Sun" id="Sun"></div>
-    <div class ="Suns-orbit" id="Suns-orbit"></div>
+<div id="zoom-controls">
+    <label for="zoom-slider">Zoom:</label>
+    <input type="range" id="zoom-slider" min="1" max="100" value="50" step="0.1">
+</div>
+
+
+<div class="Main-btn"></div>
+    
+    <button id="Sun-btn">Sun</button>
+    <button id="Mercury-btn">Mercury</button>
+    <button id="Venus-btn">Venus</button>
+    <button id="Earth-btn">Earth</button>
+</div>
+
+
+    
 
     
     <h1>Explore space.</h1>
