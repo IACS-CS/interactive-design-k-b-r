@@ -12,45 +12,20 @@ html{
     width: 200000vw;
   }
 
-  h1{
-  font-family: "Tourney", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+small{
+  position: fixed;
+  color: white;
 }
 
-
-
-  h1{
-    border: 10px solid white;
-    padding: 20px;
-    border-radius: 15px;
-     background-image: linear-gradient(rgb(7, 158, 251), rgb(147, 9, 207));
-    color: rgb(8, 8, 8);
-    size: 100px;
-    position: fixed;
-    top: 100px;
-    left: 100px;
-  }
-  
-  small{
-    color: white;
-  }
-  small{
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    font-family: "Tourney", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 200;
-    font-style: normal;
-    font-variation-settings:
-      "wdth" 100;
-      color: white;
-  }
-
-
-
-
+.Sun {
+  position: relative;
+  bottom: 10000px;
+  left: 10000px;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #FFD700, #FFA500);
+  border-radius: 50%;
+  box-shadow: 0 0 30px 10px rgba(255, 215, 0, 0.5);
+  z-index: 1000;
+}
