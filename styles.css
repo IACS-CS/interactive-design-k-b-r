@@ -1,17 +1,44 @@
 
 html{
-  background-image: url('Img.png');
+  background-image: url('black.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   }
   
-  html{
-    height: 200000vh;
-    width: 200000vw;
-  }
+/* BEFORE (If you followed the last suggestion) */
+/*
+html{
+  height: 100000px; 
+  width: 100000px;
+}
+*/
 
+/* 🪐 AFTER (Recommended for 8+ planets and larger distances) */
+html{
+  /* Set a massive, fixed pixel size to ensure the scroll area covers the outer planets 
+     (e.g., 500,000px should be safe for a full solar system model) */
+  height: 500000px; 
+  width: 500000px;  
+  
+  /* Retain your existing background properties: */
+  background-image: url('black.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.container {
+  postion: relative;
+}
+
+.universe {
+  transform-origin: center;
+  will-change: transform;
+  transition: transform 0.3s ease-out;
+}
 small{
   position: fixed;
   color: white;
@@ -36,7 +63,7 @@ small{
 #Sun-btn {
   position: fixed;
   top: 20px;
-  right: 20px;
+  right: 160px;
   background-color: gold;
   color: rgb(252, 250, 250);
   padding: 20px 50px;
@@ -55,8 +82,8 @@ small{
   position: relative;
   top: 1500px;
   left: 45000px;
-  width: 800px;
-  height: 800px;
+  width: 600px;
+  height: 600px;
   margin: -100px 0 0 -100px;
   background: radial-gradient(circle at center, #b0b0b0, #808080);
   border-radius: 50%;
@@ -68,11 +95,11 @@ small{
 
 #Mercury-btn {
   position: fixed;
-  top: 100px;
-  right: 20px;
+  top: 20px;
+  right: 10px;
   background-color: gray;
   color: rgb(252, 250, 250);
-  padding: 20px 50px;
+  padding: 20px 45px;
   border: rgb(255, 255, 255) 2px solid;
   cursor: pointer;
   z-index: 2000;
@@ -86,8 +113,8 @@ small{
   position: relative;
   top: 2000px;
   left: 50000px;
-  width: 1000px;
-  height: 1000px;
+  width: 800px;
+  height: 800px;
   margin: -100px 0 0 -100px;
   background: radial-gradient(circle at center, #e6e2d3, #c2b280);
   border-radius: 50%;
@@ -100,8 +127,8 @@ small{
 }
 #Venus-btn {
   position: fixed;
-  top: 180px;
-  right: 20px;
+  top: 100px;
+  right: 160px;
   background-color: tan;
   color: rgb(252, 250, 250);
   padding: 20px 50px;
@@ -118,8 +145,8 @@ small{
   position: relative;
   top: 2500px;
   left: 55000px;
-  width: 1100px;
-  height: 1100px;
+  width: 900px;
+  height: 900px;
   margin: -100px 0 0 -100px;
   background: radial-gradient(circle at center, #6ca0dc, #2a52be);
   border-radius: 50%;
@@ -132,8 +159,8 @@ small{
 }
 #Earth-btn {
   position: fixed;
-  top: 260px;
-  right: 20px;
+  top: 100px;
+  right: 10px;
   background-color: blue;
   color: rgb(252, 250, 250);
   padding: 20px 50px;
@@ -150,8 +177,8 @@ small{
   position: relative;
   top: 2700px;
   left: 56200px;
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   margin: -100px 0 0 -100px;
   background: radial-gradient(circle at center, #d9d9d9, #a6a6a6);
   border-radius: 50%;
@@ -162,21 +189,177 @@ small{
   background-size: 150%;
 }
 
-
-
-
-
-
-/* ... existing CSS for html, small, .Sun, .Mercury, etc. ... */
-
-/* Wrap the massive elements to be zoomed */
-.zoomable-content {
-    /* Set the origin point for the zoom (e.g., center of the screen) */
-    transform-origin: 50% 50%; 
-    will-change: transform; /* Performance optimization */
+.Mars {
+  position: relative;
+  top: 3000px;
+  left: 60000px;
+  width: 900px;
+  height: 900px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #ff4500, #b22222);
+  border-radius: 50%;
+  box-shadow: 0 0 25px 7px rgba(255, 69, 0, 0.5);
+  z-index: 1000;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg');
+  background-position: center;
+  background-size: cover;
+  background-size: 150%;
 }
 
-/* Style for the fixed zoom control bar */
+#Mars-btn {
+  position: fixed;
+  top: 180px;
+  right: 160px;
+  background-color: red;
+  color: rgb(252, 250, 250);
+  padding: 20px 50px;
+  border: rgb(255, 255, 255) 2px solid;
+  cursor: pointer;
+  z-index: 2000;
+  border-radius: 15px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.Jupiter {
+  position: relative;
+  top: 4000px;
+  left: 70000px;
+  width: 1400px;
+  height: 1400px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #f4e2d8, #d2b48c);
+  border-radius: 50%;
+  box-shadow: 0 0 35px 10px rgba(210, 180, 140, 0.5);
+  z-index: 1000;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg');
+  background-position: center;
+  background-size: cover;
+  background-size: 150%;
+}
+
+#Jupiter-btn {
+  position: fixed;
+  top: 180px;
+  right: 10px;
+  background-color: tan;
+  color: rgb(252, 250, 250);
+  padding: 20px 50px;
+  border: rgb(255, 255, 255) 2px solid;
+  cursor: pointer;
+  z-index: 2000;
+  border-radius: 15px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.Saturn {
+  position: relative;
+  top: 5000px;
+  left: 85000px;
+  width: 2800px;
+  height: 1010px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #f5deb3, #d2b48c);
+  border-radius: 50%;
+  z-index: 1000;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg');
+  background-position: center;
+  background-size: 90%;
+
+}
+
+#Saturn-btn {
+  position: fixed;
+  top: 250px;
+  right: 160px;
+  background-color: tan;
+  color: rgb(252, 250, 250);
+  padding: 20px 50px;
+  border: rgb(255, 255, 255) 2px solid;
+  cursor: pointer;
+  z-index: 2000;
+  border-radius: 15px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.Uranus {
+  position: relative;
+  top: 6000px;
+  left: 100000px;
+  width: 1100px;
+  height: 1100px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #afeeee, #40e0d0);
+  border-radius: 50%;
+  box-shadow: 0 0 30px 8px rgba(64, 224, 208, 0.5);
+  z-index: 1000;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg');
+  background-position: center;
+  background-size: cover;
+  background-size: 150%;
+}
+
+#Uranus-btn {
+  position: fixed;
+  top: 250px;
+  right: 10px;
+  background-color: lightblue;
+  color: rgb(252, 250, 250);
+  padding: 20px 50px;
+  border: rgb(255, 255, 255) 2px solid;
+  cursor: pointer;
+  z-index: 2000;
+  border-radius: 15px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.Neptune {
+  position: relative;
+  top: 7000px;
+  left: 120000px;
+  width: 1000px;
+  height: 1000px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #4169e1, #000080);
+  border-radius: 50%;
+  box-shadow: 0 0 25px 7px rgba(0, 0, 128, 0.5);
+  z-index: 1000;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg');
+  background-position: center;
+  background-size: cover;
+  background-size: 150%;
+}
+
+#Neptune-btn {
+  position: fixed;
+  top: 320px;
+  right: 70px;
+  background-color: darkblue;
+  color: rgb(252, 250, 250);
+  padding: 20px 50px;
+  border: rgb(255, 255, 255) 2px solid;
+  cursor: pointer;
+  z-index: 2000;
+  border-radius: 15px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.zoomable-content {
+    transform-origin: 50% 50%; 
+    will-change: transform;
+}
+
+
 #zoom-controls {
     position: fixed;
     bottom: 0;
