@@ -30,12 +30,10 @@ html{
   background-repeat: no-repeat;
 }
 
-.container {
-  postion: relative;
-}
+
 
 .universe {
-  transform-origin: center;
+  transform-origin: top left;
   will-change: transform;
   transition: transform 0.3s ease-out;
 }
@@ -220,6 +218,24 @@ small{
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg');
   background-size: cover;
   background-position: center;
+}
+
+
+
+.AsteroidBelt {
+  position: relative;
+  top: 3500px;
+  left: 63000px;
+  width: 1000px;
+  height: 3000px;
+  margin: -100px 0 0 -100px;
+  background: radial-gradient(circle at center, #a9a9a9, #696969);
+  border-radius: 100px / 50px;
+  border: 2px solid gray;
+  z-index: 900;
+  background-image: url('Aster.png');
+  background-position: bottom right;
+  background-size: 500px;
 }
 
 .Jupiter {

@@ -1,3 +1,5 @@
+let elementInCenter = null;
+
 document.addEventListener("DOMContentLoaded", function () {
   let sunButton = document.getElementById("Sun-btn");
   let sunTarget = document.querySelector(".Sun");
@@ -7,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "center",
       });
+      elementInCenter = sunTarget;
     });
   } else {
     console.error(
@@ -24,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "center",
       });
+      elementInCenter = mercuryTarget;
     });
   } else {
     console.error(
@@ -41,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "center",
       });
+      elementInCenter = venusTarget;
     });
   } else {
     console.error(
@@ -58,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "center",
       });
+      elementInCenter = earthTarget;
     });
   } else {
     console.error(
@@ -74,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "center",
       });
+      elementInCenter = marsTarget;
     });
   } else {
     console.error(
@@ -91,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "center",
       });
+      elementInCenter = jupiterTarget;
     });
   } else {
     console.error(
@@ -108,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "center",
       });
+      elementInCenter = saturnTarget;
     });
   } else {
     console.error(
@@ -125,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "center",
       });
+      elementInCenter = uranusTarget;
     });
   } else {
     console.error(
@@ -142,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "center",
       });
+      elementInCenter = neptuneTarget;
     });
   } else {
     console.error(
@@ -150,15 +161,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-
 // Zoom functionality
-const universe = document.querySelector('.universe');
+const universe = document.querySelector(".universe");
 let scale = 1;
 
 // when they adjust the zoom slider
-const zoomSlider = document.getElementById('zoom-slider');
-zoomSlider.addEventListener('input', function() {
+const zoomSlider = document.getElementById("zoom-slider");
+zoomSlider.addEventListener("input", function () {
   scale = zoomSlider.value;
   universe.style.transform = `scale(${scale})`;
+  if (elementInCenter) {
+    // delay 300ms
+    setTimeout(() => {
+      elementInCenter.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 300);
+  }
 });
